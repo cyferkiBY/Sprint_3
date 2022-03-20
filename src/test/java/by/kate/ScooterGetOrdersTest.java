@@ -11,7 +11,6 @@ import static org.hamcrest.Matchers.greaterThan;
 
 public class ScooterGetOrdersTest {
     ScooterClient scooterClient;
-    ScooterOrders orders;
 
     @Before
     public void setUp() {
@@ -32,8 +31,7 @@ public class ScooterGetOrdersTest {
             totalOrder = 0;
         }
         assertThat(totalOrder, greaterThan(0));
-        Assert.assertEquals("Не верный статус-код",200, statusCode);
+        Assert.assertEquals("Не верный статус-код", 200, statusCode);
         Assert.assertFalse("Список заказов пустой", scooterOrders.getOrders().isEmpty());
     }
-
 }

@@ -20,8 +20,10 @@ public class ScooterOrder {
     private String deliveryDate;
     private String comment;
     private String[] color;
+    private int track;
+    private int id;
 
-    public ScooterOrder(String firstName, String lastName, String address, String metroStation, String phone, String rentTime, String deliveryDate, String comment, String[] color) {
+    public ScooterOrder(String firstName, String lastName, String address, String metroStation, String phone, String rentTime, String deliveryDate, String comment, String[] color, int track, int id) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -31,6 +33,8 @@ public class ScooterOrder {
         this.deliveryDate = deliveryDate;
         this.comment = comment;
         this.color = color;
+        this.track = track;
+        this.id = id;
     }
 
     public static ScooterOrder getRandomScooterOrder() {
@@ -44,6 +48,8 @@ public class ScooterOrder {
         final String deliveryDate = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
         final String comment = RandomStringUtils.randomAlphabetic(10);
         final String[] color = {};
-        return new ScooterOrder(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, color);
+        final int track = 0;
+        final int id = 0;
+        return new ScooterOrder(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, color, track, id);
     }
 }

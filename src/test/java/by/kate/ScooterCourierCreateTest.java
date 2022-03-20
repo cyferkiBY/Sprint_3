@@ -29,9 +29,9 @@ public class ScooterCourierCreateTest {
         int statusCode = createResponse.extract().statusCode();
         boolean message = createResponse.extract().path("ok");
 
-        Assert.assertNotEquals("Не удалось создать курьера",0, courierId);
+        Assert.assertNotEquals("Не удалось создать курьера", 0, courierId);
         Assert.assertTrue("Не верное сообщение об ошибке", message);
-        Assert.assertEquals("Не верный статус-код",201, statusCode);
+        Assert.assertEquals("Не верный статус-код", 201, statusCode);
     }
 
     @Test
@@ -45,7 +45,7 @@ public class ScooterCourierCreateTest {
         int statusCode = createResponse.extract().statusCode();
         String message = createResponse.extract().path("message");
         Assert.assertEquals("Не верное сообщение об ошибке", "Недостаточно данных для создания учетной записи", message);
-        Assert.assertEquals("Не верный статус-код",400, statusCode);
+        Assert.assertEquals("Не верный статус-код", 400, statusCode);
     }
 
     @Test
@@ -59,7 +59,7 @@ public class ScooterCourierCreateTest {
         int statusCode = createResponse.extract().statusCode();
         String message = createResponse.extract().path("message");
         Assert.assertEquals("Не верное сообщение об ошибке", "Недостаточно данных для создания учетной записи", message);
-        Assert.assertEquals("Не верный статус-код",400, statusCode);
+        Assert.assertEquals("Не верный статус-код", 400, statusCode);
     }
 
     @Test
@@ -75,9 +75,9 @@ public class ScooterCourierCreateTest {
         courierId = courierClient.getIdScooterCourier(courierCredentialsWithoutFirstName);
         int statusCode = createResponse.extract().statusCode();
         boolean message = createResponse.extract().path("ok");
-        Assert.assertNotEquals("Не удалось создать курьера",0, courierId);
+        Assert.assertNotEquals("Не удалось создать курьера", 0, courierId);
         Assert.assertTrue("Не верное сообщение об ошибке", message);
-        Assert.assertEquals("Не верный статус-код",201, statusCode);
+        Assert.assertEquals("Не верный статус-код", 201, statusCode);
     }
 
     @Test
@@ -90,8 +90,8 @@ public class ScooterCourierCreateTest {
         int statusCode = createSecondCourierResponse.extract().statusCode();
         String message = createSecondCourierResponse.extract().path("message");
 
-        Assert.assertEquals("Не верное сообщение об ошибке","Этот логин уже используется. Попробуйте другой.", message);
-        Assert.assertEquals("Не верный статус-код",409, statusCode);
+        Assert.assertEquals("Не верное сообщение об ошибке", "Этот логин уже используется", message);
+        Assert.assertEquals("Не верный статус-код", 409, statusCode);
     }
 
     @Test
@@ -105,13 +105,12 @@ public class ScooterCourierCreateTest {
         int statusCode = createSecondCourierResponse.extract().statusCode();
         String message = createSecondCourierResponse.extract().path("message");
 
-        Assert.assertEquals("Не верное сообщение об ошибке","Этот логин уже используется. Попробуйте другой.", message);
-        Assert.assertEquals("Не верный статус-код",409, statusCode);
+        Assert.assertEquals("Не верное сообщение об ошибке", "Этот логин уже используется", message);
+        Assert.assertEquals("Не верный статус-код", 409, statusCode);
     }
 
     @After
     public void tearDown() {
         courierClient.deleteCourier(courierId);
     }
-
 }

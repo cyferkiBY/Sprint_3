@@ -33,8 +33,8 @@ public class ScooterCourierLoginTest {
         } else {
             courierId = 0;
         }
-        Assert.assertNotEquals("Не удалось залогиниться",0, courierId);
-        Assert.assertEquals("Не верный статус-код",200, statusCode);
+        Assert.assertNotEquals("Не удалось залогиниться", 0, courierId);
+        Assert.assertEquals("Не верный статус-код", 200, statusCode);
     }
 
     @Test
@@ -45,8 +45,8 @@ public class ScooterCourierLoginTest {
         ValidatableResponse loginResponse = scooterClient.loginCourier(new ScooterCourierCredentials(courierWithValidData.getLogin(), wrongPassword));
         int statusCode = loginResponse.extract().statusCode();
         String message = loginResponse.extract().path("message");
-        Assert.assertEquals("Не верное сообщение об ошибке","Учетная запись не найдена", message);
-        Assert.assertEquals("Не верный статус-код",404, statusCode);
+        Assert.assertEquals("Не верное сообщение об ошибке", "Учетная запись не найдена", message);
+        Assert.assertEquals("Не верный статус-код", 404, statusCode);
     }
 
     @Test
@@ -57,8 +57,8 @@ public class ScooterCourierLoginTest {
         ValidatableResponse loginResponse = scooterClient.loginCourier(new ScooterCourierCredentials(wrongLogin, courierWithValidData.getPassword()));
         int statusCode = loginResponse.extract().statusCode();
         String message = loginResponse.extract().path("message");
-        Assert.assertEquals("Не верное сообщение об ошибке","Учетная запись не найдена", message);
-        Assert.assertEquals("Не верный статус-код",404, statusCode);
+        Assert.assertEquals("Не верное сообщение об ошибке", "Учетная запись не найдена", message);
+        Assert.assertEquals("Не верный статус-код", 404, statusCode);
     }
 
     @Test
@@ -70,8 +70,8 @@ public class ScooterCourierLoginTest {
         ValidatableResponse loginResponse = scooterClient.loginCourier(new ScooterCourierCredentials(wrongLogin, wrongPassword));
         int statusCode = loginResponse.extract().statusCode();
         String message = loginResponse.extract().path("message");
-        Assert.assertEquals("Не верное сообщение об ошибке","Учетная запись не найдена", message);
-        Assert.assertEquals("Не верный статус-код",404, statusCode);
+        Assert.assertEquals("Не верное сообщение об ошибке", "Учетная запись не найдена", message);
+        Assert.assertEquals("Не верный статус-код", 404, statusCode);
     }
 
     @Test
@@ -80,8 +80,8 @@ public class ScooterCourierLoginTest {
         ValidatableResponse loginResponse = scooterClient.loginCourier(ScooterCourierCredentials.builder().login(courierWithValidData.getLogin()).password("").build());
         int statusCode = loginResponse.extract().statusCode();
         String message = loginResponse.extract().path("message");
-        Assert.assertEquals("Не верное сообщение об ошибке","Недостаточно данных для входа", message);
-        Assert.assertEquals("Не верный статус-код",400, statusCode);
+        Assert.assertEquals("Не верное сообщение об ошибке", "Недостаточно данных для входа", message);
+        Assert.assertEquals("Не верный статус-код", 400, statusCode);
     }
 
     @Test
@@ -90,13 +90,12 @@ public class ScooterCourierLoginTest {
         ValidatableResponse loginResponse = scooterClient.loginCourier(ScooterCourierCredentials.builder().login("").password(courierWithValidData.getPassword()).build());
         int statusCode = loginResponse.extract().statusCode();
         String message = loginResponse.extract().path("message");
-        Assert.assertEquals("Не верное сообщение об ошибке","Недостаточно данных для входа", message);
-        Assert.assertEquals("Не верный статус-код",400, statusCode);
+        Assert.assertEquals("Не верное сообщение об ошибке", "Недостаточно данных для входа", message);
+        Assert.assertEquals("Не верный статус-код", 400, statusCode);
     }
 
     @After
     public void tearDown() {
         scooterClient.deleteCourier(courierId);
     }
-
 }

@@ -21,5 +21,4 @@ public class ScooterCourierCredentials {
         this.login = courier.getLogin();
         this.password = courier.getPassword();
     }
-
 }

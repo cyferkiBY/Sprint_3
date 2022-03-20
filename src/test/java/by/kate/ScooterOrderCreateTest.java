@@ -23,7 +23,7 @@ public class ScooterOrderCreateTest {
         String[] colorGrey = {"GREY"};
         String[] colorAll = {"BLACK", "GREY"};
         String[] colorEmpty = {};
-        return new Object[][] {
+        return new Object[][]{
                 {colorBlack},
                 {colorGrey},
                 {colorAll},
@@ -46,8 +46,7 @@ public class ScooterOrderCreateTest {
             orderId = 0;
         }
 
-        Assert.assertNotEquals("Не удалось создать заказ",0, orderId);
-        Assert.assertEquals("Не верный статус-код",201, statusCode);
+        Assert.assertNotEquals("Не удалось создать заказ", 0, orderId);
+        Assert.assertEquals("Не верный статус-код", 201, statusCode);
     }
-
 }

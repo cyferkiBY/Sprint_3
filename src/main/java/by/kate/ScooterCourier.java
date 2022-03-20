@@ -25,5 +25,4 @@ public class ScooterCourier {
 
         return new ScooterCourier(courierRandomLogin, courierRandomPassword, courierRandomFirstName);
     }
-
 }

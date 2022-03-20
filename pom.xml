@@ -15,7 +15,7 @@
         <aspectj.version>1.9.8</aspectj.version>
         <!-- версия Allure -->
         <allure.version>2.17.3</allure.version>
-         <!-- Убирает [WARNING] связанных с кодировкой -->
+        <!-- Убирает [WARNING] связанных с кодировкой -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -55,31 +55,24 @@
             <artifactId>allure-junit4</artifactId>
             <version>${allure.version}</version>
         </dependency>
+        <!-- модуль взаимодействия Allure и RestAssured -->
         <dependency>
-            <!-- модуль взаимодействия Allure и RestAssured -->
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-rest-assured</artifactId>
             <version>${allure.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
-        <!-- <dependency>
-           <groupId>io.qameta.allure</groupId>
-           <artifactId>allure-maven</artifactId>
-           <version>2.11.2</version>
-       </dependency>-->
-
-       <dependency>
-           <groupId>org.projectlombok</groupId>
-           <artifactId>lombok</artifactId>
-           <version>1.18.22</version>
-           <scope>provided</scope>
-       </dependency>
-   </dependencies>
-
-   <build>
-       <plugins>
-           <plugin>
-               <!-- настройка плагина maven-surefire-plugin -->
+    <build>
+        <plugins>
+            <plugin>
+                <!-- настройка плагина maven-surefire-plugin -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
@@ -112,14 +105,11 @@
             </plugin>
             <!-- подключение плагина allure-maven для вызова функций Allure с помощью Maven -->
             <plugin>
-               <groupId>io.qameta.allure</groupId>
-               <artifactId>allure-maven</artifactId>
-               <version>2.11.2</version>
-                <!--<configuration>
-                    <reportVersion>2.15.0</reportVersion>
-                </configuration>-->
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.11.2</version>
             </plugin>
         </plugins>
     </build>
 
- </project>
+</project>
